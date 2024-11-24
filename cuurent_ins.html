@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Insurance Details - Insurance Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background: #007BFF;
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        .insurance-detail {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        .insurance-block {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #007BFF;
+            color: #ffffff;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Current Insurance Details</h1>
+</header>
+
+<div class="container">
+    {% if insurance %}
+        {% for ins in insurance %}
+        <div class="insurance-block">
+            <div class="insurance-detail">
+                <strong>Your Ongoing {{ins[0]}} Insurance:</strong> 
+            </div>
+            <div class="insurance-detail">
+                <strong>Start Date:</strong> {{ ins[1] }}
+            </div>
+            {% if ins[0] == 'Home' %}
+            <div class="insurance-detail">
+                <strong>Duration:</strong> {{ ins[2] }} years
+            </div>
+            <div class="insurance-detail">
+                <strong>Interest Rate:</strong> {{ ins[3] }}%
+            </div>
+            <div class="insurance-detail">
+                <strong>Coverage Amount:</strong> ₹{{ ins[4] }}
+            </div>
+            {% else %}
+            <div class="insurance-detail">
+                <strong>Monthly Premium:</strong> ₹{{ ins[2] }}
+            </div>
+            <div class="insurance-detail">
+                <strong>Total Coverage Amount:</strong> ₹{{ ins[3] }}
+            </div>
+            {% if ins|length > 4 %}
+            <div class="insurance-detail">
+                <strong>Conditions:</strong> {{ ins[4] }}
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <h2>No Active Insurances Found</h2>
+    {% endif %}
+</div>
+
+<footer>
+    <p>&copy; 2024 Insurance Management System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

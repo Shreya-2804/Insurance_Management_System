@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Insurance Plans - Insurance Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        header {
+            background: #1e3d58;
+            color: white;
+            padding: 20px 0;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 85%;
+            max-width: 700px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        .container h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #1e3d58;
+        }
+        .option {
+            background: #fafafa;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .option:hover {
+            background: #e3f2fd;
+            transform: translateY(-5px);
+        }
+        .option h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+        .option p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .option a {
+            display: inline-block;
+            background: #007BFF;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .option a:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+        footer {
+            background: #1e3d58;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+        }
+        footer p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin-top: 20px;
+            }
+            .option a {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Life Insurance Plans</h1>
+</header>
+
+<div class="container">
+    <h2>Select Your Plan</h2>
+    {% for plan in plans %}
+    <div class="option">
+        <h3>Plan {{plan[0]}}</h3>
+        <p><strong>Monthly Premium:</strong> ₹{{ plan[1] }}</p>
+        <p><strong>Duration:</strong> {{ plan[3] }} Years</p>
+        <p><strong>Total Coverage:</strong> ₹{{ plan[2] }}</p>
+        <form action="/apply" method="POST">
+            <input type="hidden" name="email" value="{{email}}">
+            <input type="hidden" name="plan" value="{{plan[0]}}">
+            <input type="hidden" name="type" value="Life">
+            <button>Apply Now</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+<footer>
+    <p>&copy; 2024 Insurance Management System | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Insurance Plans - Insurance Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .option {
+            margin: 15px 0;
+            padding: 20px;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #e6f2ff;
+        }
+        .option h3 {
+            margin-bottom: 10px;
+        }
+        .option p {
+            margin: 5px 0;
+        }
+        .option button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #007bff;
+            color: #fff;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Home Insurance Plans</h1>
+</header>
+
+<main class="container">
+    <h2>Select Your Loan Option</h2>
+
+    <section class="option">
+        <h3>5-Year Loan</h3>
+        <p><strong>Interest Rate:</strong> 3%</p>
+        <p><strong>Loan Duration:</strong> 5 Years</p>
+        <p><strong>Loan Amount:</strong> ₹50,00,000</p>
+        <button onclick="location.href='apply_5_years.html'">Apply Now</button>
+    </section>
+
+    <section class="option">
+        <h3>10-Year Loan</h3>
+        <p><strong>Interest Rate:</strong> 2.5%</p>
+        <p><strong>Loan Duration:</strong> 10 Years</p>
+        <p><strong>Loan Amount:</strong> ₹50,00,000</p>
+        <button onclick="location.href='apply_10_years.html'">Apply Now</button>
+    </section>
+
+    <section class="option">
+        <h3>20-Year Loan</h3>
+        <p><strong>Interest Rate:</strong> 2%</p>
+        <p><strong>Loan Duration:</strong> 20 Years</p>
+        <p><strong>Loan Amount:</strong> ₹50,00,000</p>
+        <button onclick="location.href='apply_20_years.html'">Apply Now</button>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Insurance Management System</p>
+</footer>
+
+</body>
+</html>
